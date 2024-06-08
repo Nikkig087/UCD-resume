@@ -62,6 +62,10 @@ header {
     margin: 0;
 }
 
+#nav {
+    margin: 0;
+}
+
 .menucontainer {
     font-size: 0; /*this will close white space between menu items */
 }
@@ -103,4 +107,11 @@ header {
     font-size: 14px;
     font-weight: 300;
     letter-spacing: 2px;
+}
+
+/* ----------------- Hover. css */
+
+.hvr-sweep-to-bottom::before {
+    background-color: rgba(0,0,0,0.2);
+    height: 120px;
 }
