@@ -229,3 +229,41 @@ footer {
 .three-reasons-heading {
     margin-bottom: 15px;
 }
+
+/* ----------------- Personal Info */
+
+.personal-info-item {
+    margin-bottom: 20px;
+    display: block; /* occupy full horizontal space */
+    clear: both; /* no items can appear either side if we use floats */
+}
+
+.personal-info-item .key,
+.personal-info-item .value {
+    padding-right: 8px;
+    display: inline-block; /*div by default starts and ends with a new line, and takes full width.
+    
+    inline block allows us put two divs beside each other*/
+
+}
+
+.personal-info-item .key p,
+.personal-info-item  .value p {
+    margin: 0;
+}
+
+.personal-info-item .key {
+    width: 30%;
+    margin-right: 21px;
+    padding-top: 2px;
+    vertical-align: top;
+}
+
+.personal-info-item .key p {
+    font-weight: 700;
+}
+
+.personal-info-item  .value {
+    position: relative; /*we want it reletive to its predessor */
+    width: 60%;
+}
