@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
+        type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Rosie</title>
 </head>
+
 <body>
     <header>
-        <div class="row no-gutters"> <!--by default columns have a gap, this turns the gap off-->
-                            <!--the first child following a row has to have a column class-->
+        <div class="row no-gutters">
+            <!--by default columns have a gap, this turns the gap off-->
+            <!--the first child following a row has to have a column class-->
             <a href="index.html" class="col-md-4 logo"> </a>
-                <div class="col-md-8">
+            <div class="col-md-8">
                 <div class="row no no-gutters bg-color-name-title">
                     <!--col without the width gives us a full width col-->
-                    <div class="col heading"> 
+                    <div class="col heading">
                         <h1 class="name">
                             Rosie Odenkirk
                         </h1>
@@ -30,21 +36,25 @@
                 <div class="row no-gutters">
                     <div class="col">
                         <!--list inline stops the list from displaying veritically but makes it display horizontally instead -->
-                        <ul id="nav" class="list-inline menucontainer"> 
+                        <ul id="nav" class="list-inline menucontainer">
                             <li class="col-6 col-sm-3 ui-menu-color-home list-inline-item menuitem">
-                                <a href="#" class="hvr-sweep-to-bottom"><i class="fa fa-home" aria-hidden="true"></i> <span>Home</span></a>
+                                <a href="#" class="hvr-sweep-to-bottom"><i class="fa fa-home" aria-hidden="true"></i>
+                                    <span>Home</span></a>
 
                             </li>
                             <li class="col-6 col-sm-3 ui-menu-color-resume list-inline-item menuitem">
-                                <a href="#" class="hvr-sweep-to-bottom"> <i class="fa fa-graduation-cap" aria-hidden="true"></i><span> Resume</span></a>
+                                <a href="#" class="hvr-sweep-to-bottom"> <i class="fa fa-graduation-cap"
+                                        aria-hidden="true"></i><span> Resume</span></a>
 
                             </li>
                             <li class="col-6 col-sm-3 ui-menu-color-contact list-inline-item menuitem">
-                                <a href="#" class="hvr-sweep-to-bottom"><i class="fa fa-comment-o" aria-hidden="true"></i> <span>Contact</span></a>
+                                <a href="#" class="hvr-sweep-to-bottom"><i class="fa fa-comment-o"
+                                        aria-hidden="true"></i> <span>Contact</span></a>
 
                             </li>
                             <li class="col-6 col-sm-3 ui-menu-color-download list-inline-item menuitem">
-                                <a href="#" class="hvr-sweep-to-bottom"><i class="fa fa-download" aria-hidden="true"></i> <span>Download</span></a>
+                                <a href="#" class="hvr-sweep-to-bottom"><i class="fa fa-download"
+                                        aria-hidden="true"></i> <span>Download</span></a>
 
                             </li>
                         </ul>
@@ -61,19 +71,76 @@
         </div>
     </header>
 
-    <section>
+    <section class="container-fluid">
+        <div class="row">
+            <!--row table means cols will remain the same height-->
+            <div class="col-md-4 bg-color-personal-info section-column">
+                <!--this col will be to the left-->
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="section-heading uppercase">Work History</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-8 bg-color-three-reasons">
+                <!--this col will be to the right-->
+                <!--section column specifies the using of a column cell ie evenly size columns in regards to height-->
+                <div class="row">
+                    <div class="col">
+                        <h3 class="section-heading uppercase">My Skills</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1 offset-sm-0 col-sm-4 col-md-6">
+                        <div class="row">
+                            <div class="col-2">
+                                <i class="three-reasons-icon fa fa-tv" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-10">
+                                <h4 class="three-reasons-heading uppercase">Front End</h4>
+                                <p>
+                                    I'm a Skilled Full Stack Developer with a wealth of diverse life and technical
+                                    experience that I bring to every project.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 offset-1 offset-sm-0 col-sm-4 col-md-6">
+                        <div class="row">
+                            <div class="col-2">
+                                <i class="three-reasons-icon fa fa-gears" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-10">
+                                <h4 class="three-reasons-heading uppercase">Backend</h4>
+                                <p>
+                                    i follow form as well as function. I know that the aesthetics of effective design
+                                    combined wiht application speed, security and reliability combine to create a great
+                                    user experience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
 
 
     </section>
 
-    <footer class="container-fluid"> <!--we want it full width-->
+    <footer class="container-fluid">
+        <!--we want it full width-->
         <div id="footer-details" class="row">
             <div class="col-sm-4">
                 <h5 class="uppercase general-sub">
-                   About 
+                    About
                 </h5>
                 <p class="inline-block">
-                    Full Stack Web Developer. Skilled in everything from HTML to Heroku.  The capacity for structural and design thinking.
+                    Full Stack Web Developer. Skilled in everything from HTML to Heroku. The capacity for structural and
+                    design thinking.
                 </p>
             </div>
             <div class="col-sm-4">
@@ -108,38 +175,38 @@
                         <a target="_blank" href="#">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                             <span class="sr-only">Twitter</span>
-                            </a>
-                            </li>
+                        </a>
+                    </li>
 
                     <li class="list-inline-item">
-                                <!--when you use list inline on ul class you must use list-inline-item in li-->
+                        <!--when you use list inline on ul class you must use list-inline-item in li-->
                         <a target="_blank" href="#">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                <span class="sr-only">LinkedIn</span>
+                            <span class="sr-only">LinkedIn</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                                        <!--when you use list inline on ul class you must use list-inline-item in li-->
-                    <a target="_blank" href="#">
-                         <i class="fa fa-pinterest" aria-hidden="true"></i>
+                        <!--when you use list inline on ul class you must use list-inline-item in li-->
+                        <a target="_blank" href="#">
+                            <i class="fa fa-pinterest" aria-hidden="true"></i>
                             <span class="sr-only">Pinterest
                             </span>
-                            </a>
-                            </li>
-                <li class="list-inline-item">
-                                <!--when you use list inline on ul class you must use list-inline-item in li-->
-                     <a target="_blank" href="#">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <!--when you use list inline on ul class you must use list-inline-item in li-->
+                        <a target="_blank" href="#">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
                             <span class="sr-only">Instagram</span>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <!--when you use list inline on ul class you must use list-inline-item in li-->
-                     <a target="_blank" href="#">
-                         <i class="fa fa-youtube" aria-hidden="true"></i>
-                        <span class="sr-only">YouTube</span>
-                    </a>
-                </li>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <!--when you use list inline on ul class you must use list-inline-item in li-->
+                        <a target="_blank" href="#">
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                            <span class="sr-only">YouTube</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
@@ -148,4 +215,5 @@
 
     </footer>
 </body>
+
 </html>
