@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -144,13 +154,12 @@
                 </p>
             </div>
             <div class="col-sm-4">
-                <h5 class="uppercase general-sub">Download</h5>
-                <p class="inline-block">
-                    Need a printable version of my CV? Download it here.
-                    <a href="assets/cv/sample-cv.pdf" target="_blank" class="cv-pdf">
-                        <i class="fa fa-download" aria-hidden="true"></i>
-                        <span class="sr-only">Download link.</span>
-                    </a>
+                <h5 class="uppercase general-sub">Contact</h5>
+                <p>
+                    Email: <a href="mailto:rosie@example.com">rosie@example.com</a>
+                </p>
+                <p>
+                    CV: <a href="assets/cv/sample-cv.pdf" target="_blank">Download link.</a>
                 </p>
             </div>
             <div class="col-sm-4">
@@ -195,41 +204,44 @@
                 </ul>
             </div>
         </div>
-
     </footer>
-    <script>
-        function initMap(){
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 3,
-                center: {
-                    lat: 46.619261,
-                    lng: -33.134766
-                }
-            });
-            var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var locations = [
-                {lat: 40.785091, lng: -73.968285},
-                {lat: 41.084045, lng: -73.874245},
-                {lat: 40.754932, lng: -73.984016}
-            ];
-            //below map method is built in js method.. not google map7
-            // This returns an array with the results of looping through each item in our locations array 
-            var markers = locations.map(function(location, i){
-                return new google.maps.Marker({
-                    position: location, // current location
-                    label: labels[i % labels.length] 
-                    //we use modulo so if we have more than 26 locations it will loop back to start of array instead of throwing an error
-                });
-            });
-            var markerClusterer = MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-        }
-    </script>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHHyac2SiOYPNYxXMK7rqJjnB8nCaaxE&callback=initMap"></script>
 
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script>
+        
+        function initMap() {
+            var map = L.map('map').setView([46.619261, -33.134766], 3);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            var markerClusterGroup = L.markerClusterGroup();
+
+            var locations = [
+                [40.785091, -73.968285],
+                [41.084045, -73.874245],
+                [40.754932, -73.984016]
+            ];
+
+            var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Define labels A to Z
+
+            locations.forEach(function (location, index) {
+                var marker = L.marker(location)
+                               .bindPopup('Marker ' + labels[index])
+                               .addTo(markerClusterGroup);
+            });
+
+            map.addLayer(markerClusterGroup);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initMap();
+        });
+    </script>
 </body>
 
 </html>
-
