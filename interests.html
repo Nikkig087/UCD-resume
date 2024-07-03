@@ -212,10 +212,13 @@
                 {lat: 41.084045, lng: -73.874245},
                 {lat: 40.754932, lng: -73.984016}
             ];
+            //below map method is built in js method.. not google map7
+            // This returns an array with the results of looping through each item in our locations array 
             var markers = locations.map(function(location, i){
                 return new google.maps.Marker({
-                    position: location,
-                    label: labels[i % labels.length]
+                    position: location, // current location
+                    label: labels[i % labels.length] 
+                    //we use modulo so if we have more than 26 locations it will loop back to start of array instead of throwing an error
                 });
             });
             var markerClusterer = MarkerClusterer(map, markers,
@@ -223,7 +226,8 @@
         }
     </script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_ZnX0LL25vDqa0zD5l0gqSyjb9dY-yy8&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHHyac2SiOYPNYxXMK7rqJjnB8nCaaxE&callback=initMap"></script>
+
 </script>
 </body>
 
