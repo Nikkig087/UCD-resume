@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css" />
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
 </head>
 
 <body>
@@ -197,39 +205,11 @@
         </div>
 
     </footer>
-    <script>
-        function initMap(){
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 3,
-                center: {
-                    lat: 46.619261,
-                    lng: -33.134766
-                }
-            });
-            var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var locations = [
-                {lat: 40.785091, lng: -73.968285},
-                {lat: 41.084045, lng: -73.874245},
-                {lat: 40.754932, lng: -73.984016}
-            ];
-            //below map method is built in js method.. not google map7
-            // This returns an array with the results of looping through each item in our locations array 
-            var markers = locations.map(function(location, i){
-                return new google.maps.Marker({
-                    position: location, // current location
-                    label: labels[i % labels.length] 
-                    //we use modulo so if we have more than 26 locations it will loop back to start of array instead of throwing an error
-                });
-            });
-            var markerClusterer = MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-        }
-    </script>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHHyac2SiOYPNYxXMK7rqJjnB8nCaaxE&callback=initMap"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js"></script>
+    <script src="assets/js/maps.js"></script>
 
-</script>
 </body>
 
 </html>
-
