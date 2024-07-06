@@ -71,6 +71,12 @@ function fetchGitHubInformation(event) {
         if (errorResponse.status === 404) {
             $("#gh-user-data").html(
                 `<h2>No info found for user ${username}</h2>`);
+        } else if (errorResponse.status === 403) {
+            var resetTime = new Date(errorResponse.getResponseHeader
+            //We want to target the header provided to GitHub to let us know when our quota will be reset and we can start using the API again, its in unix so thats why we need to multiply it by 100 to get it into date we understand
+            ('X-RateLimit-Reset') * 1000);
+            $("#gh-user-data").html(`<h4>Too many requests, please wait until ${resetTime.toLocaleTimeString()}</h4>`);
+            //this picks up the location from your browswer and prints the local time
         } else {
             console.log(errorResponse);
             $("#gh-user-data").html(
